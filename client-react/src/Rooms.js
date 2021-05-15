@@ -1,23 +1,22 @@
 import React, { useState } from 'react'
 
-function getRooms (messages, newRoom) {
-  console.log(messages)
-  const rooms = messages.map(msg => msg.room)
-  rooms.push(newRoom)
-  const allRooms = rooms.filter(room => room)
 
-  const uniqrooms = Array.from(new Set(allRooms))
-  return uniqrooms
-}
 
-export default function Rooms (props) {
+export default function Rooms(props) {
   const [newRoom, setNewRoom] = useState('')
 
-  function addRoom () {
+  function addRoom() {
     const newRoom = prompt('enter a new room name: ')
     setNewRoom(newRoom)
   }
+  getRooms(messages) {
+    console.log(messages)
+    const rooms = messages.map(msg => msg.room)
+    const allRooms = rooms.filter(room => room)
 
+    const uniqrooms = Array.from(new Set(allRooms))
+    return uniqrooms
+  }
   return (
     <div id='room'>
       <button onClick={addRoom}>Add Room</button>
