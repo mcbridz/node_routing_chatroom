@@ -4,17 +4,20 @@ import MessageForm from './MessageForm'
 import io from '../../node_modules/socket.io/client-dist/socket.io.js'
 import Room from './Room'
 import Login from './Login'
+import SignUp from './SignUp'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link,
+  Redirect
 } from 'react-router-dom'
 const socket = io()
 
 class App extends React.Component {
   constructor(props) {
     super(props)
+    this.setNick = this.setNick.bind(this)
     let currentPath = window.location.pathname
     let regEx = /\/room\//
     let strippedPath = currentPath.replace(regEx, "")
@@ -68,6 +71,7 @@ class App extends React.Component {
     this.setState({ nick: newNick })
   }
 
+
   render() {
     return (
       <div className='App'>
@@ -112,10 +116,10 @@ class App extends React.Component {
                 <Login setNick={this.setNick} />
               </Route>
               <Route path="/logout">
-
+                <Redirect to="/login" />
               </Route>
               <Route path="/signup">
-
+                <SignUp setNick={this.setNick} />
               </Route>
               <Route path="/room/:room" children={
                 <Room

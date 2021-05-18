@@ -44,3 +44,4 @@
 {"nick":"Z","room":"general","text":"tef"}
 {"nick":"Z","room":"chill","text":"def"}
 {"nick":"Z","room":"chill","text":"ghi"}
+{"nick":"abc","room":"hackz","text":"def"}
