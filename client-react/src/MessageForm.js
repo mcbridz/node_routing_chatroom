@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 
-export default function MessageForm (props) {
+export default function MessageForm(props) {
   const [inputValue, setInputValue] = useState('')
 
-  function handleChange (event) {
+  function handleChange(event) {
     setInputValue(event.target.value)
   }
 
-  function handleSubmit (event) {
+  function handleSubmit(event) {
     event.preventDefault()
-    props.handleSubmit(inputValue)
+    props.handleSubmit(inputValue, props.nick, props.room)
   }
 
   return (

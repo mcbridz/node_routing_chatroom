@@ -43,7 +43,7 @@ module.exports = function (deps) {
 
     socket.on('chat message', (msg) => {
       console.log('message: ' + msg)
-      const data = JSON.stringify(msg)
+      const data = msg
 
       io.emit('chat message', msg)
 
