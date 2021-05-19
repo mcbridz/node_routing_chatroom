@@ -45,3 +45,5 @@
 {"nick":"Z","room":"chill","text":"def"}
 {"nick":"Z","room":"chill","text":"ghi"}
 {"nick":"abc","room":"hackz","text":"def"}
+{"nick":"b","room":"chill","text":"def"}
+{"nick":"bob","room":"hackz","text":"gg"}

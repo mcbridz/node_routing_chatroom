@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 function Login(props) {
     let setNick = props.setNick
     const [username, setUsername] = useState('')
+    let history = useHistory()
     const handleChange = (evt) => {
         let input = evt.target.value
         setUsername(input)
@@ -11,11 +12,11 @@ function Login(props) {
         console.log('Logging in: ' + username)
         evt.preventDefault()
         setNick(username)
-        return <Redirect to="/" />
+        history.push('/')
     }
     const goToSignUp = (evt) => {
         evt.preventDefault()
-        return <Redirect to="/signup" />
+        history.push('/signup')
     }
     return (
         <form onSubmit={handleSubmit}>

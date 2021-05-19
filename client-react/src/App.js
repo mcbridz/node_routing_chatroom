@@ -5,6 +5,7 @@ import io from '../../node_modules/socket.io/client-dist/socket.io.js'
 import Room from './Room'
 import Login from './Login'
 import SignUp from './SignUp'
+import Rooms from './Rooms'
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,7 +28,11 @@ class App extends React.Component {
       rooms: [],
       nick: ''
     }
+    this.setRoom = this.setRoom.bind(this)
   }
+  // sendTo(newUrl) {
+  //   this.props.history.push(newUrl)
+  // }
 
   componentDidMount() {
     // const nickname = prompt('enter your nickname:')
@@ -95,7 +100,7 @@ class App extends React.Component {
                   <Link to="/signup">Sign-Up</Link>
                 </div>
               </div>
-              <ul>
+              {/* <ul>
                 {this.state.rooms.map((room, index) => {
                   return <li key={index}>
                     <Link to={'/room/' + room} onClick={() => {
@@ -104,14 +109,10 @@ class App extends React.Component {
                     }}>{room}</Link>
                   </li>
                 })}
-              </ul>
+              </ul> */}
+              <Rooms rooms={this.state.rooms} setRoom={this.setRoom} />
             </nav>
             <Switch>
-              {/* {this.state.rooms.map((room, index) => {
-                <Route path={'/room/' + room}>
-                  <Room messages={this.state.messages.filter(msg => msg.room === room)} />
-                </Route>
-              })} */}
               <Route path="/login">
                 <Login setNick={this.setNick} />
               </Route>

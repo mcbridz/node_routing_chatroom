@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-
+import { useHistory } from 'react-router-dom'
 function SignUp(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [emailAddress, setEmailAddress] = useState('')
     const setNick = props.setNick
-
+    let history = useHistory()
     const handleUsernameChange = (evt) => {
         let input = evt.target.value
         setUsername(input)
@@ -21,7 +21,7 @@ function SignUp(props) {
     const handleSubmit = (evt) => {
         evt.preventDefault()
         setNick(username)
-        window.location.pathname = '/'
+        history.push('/')
     }
     return (
         <form onSubmit={handleSubmit}>
