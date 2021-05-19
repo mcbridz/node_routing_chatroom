@@ -9,7 +9,7 @@ export default function Rooms(props) {
   let history = useHistory()
   const sendTo = (evt) => {
     setRoom(evt.target.value)
-    history.push('/' + evt.target.value)
+    history.push('/room/' + evt.target.value)
   }
 
   return < select defaultValue="" onChange={sendTo}>
